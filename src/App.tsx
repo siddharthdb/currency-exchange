@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import {
-  Container, Grid, hexToRgb, useMediaQuery, createMuiTheme, ThemeProvider, FormControl, InputLabel, Select, MenuItem
+  Container, hexToRgb, useMediaQuery, createMuiTheme, ThemeProvider, FormControl, InputLabel, Select, MenuItem
 } from '@material-ui/core';
 
 import { NavBar } from './NavBar';

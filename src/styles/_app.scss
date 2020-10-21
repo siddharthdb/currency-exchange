@@ -1,15 +1,30 @@
-.App {
-    text-align: center;
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: white;
+.currency-selector {
+  width: 240px;
+  color: #fff;
 }
 
-.currency-selector {
-    width: 240px;
-    color: #fff;
+.currency-container {
+  display: grid;
+  grid-template-columns: auto;
+  grid-gap: 10px;
+  max-width: 750px;
+
+  > div {    
+    text-align: center;
+    padding: 20px 0;
+    font-size: 24px;
+  }
+
+  > .card{
+    
+  }
+}
+
+/**
+    Override Bootstrap CSS 
+*/
+
+.dropdown-menu {
+    overflow-y:scroll;
+    max-height: 400px;
 }

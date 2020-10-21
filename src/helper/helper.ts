@@ -8,5 +8,5 @@ export const getCurrency = () => {
 }
 
 export const getFlags = (currency: string) => {
-    return `currency-flag currency-flag-xl currency-flag-${currency.toLowerCase()}`
+    return currency ? `currency-flag currency-flag-xl currency-flag-${currency.toLowerCase()}` : ''
 }

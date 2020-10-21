@@ -1,15 +1,14 @@
-import { AppBar, Container, Toolbar, Typography } from '@material-ui/core';
-import React from 'react';
+import React from "react";
+import { Navbar } from "react-bootstrap";
 
 export const NavBar = () => {
-
-  return <Container>
-    <AppBar position="static">
-      <Toolbar variant="dense">
-        <Typography variant="h6" color="inherit">
+  return (
+    <>
+      <Navbar bg="dark" expand="lg" variant="dark">
+        <Navbar.Brand href="/">
           Currency Exchange
-      </Typography>
-      </Toolbar>
-    </AppBar>
-  </Container>;
-}
+        </Navbar.Brand>
+      </Navbar>
+    </>
+  );
+};

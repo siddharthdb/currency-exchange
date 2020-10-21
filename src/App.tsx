@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { NavBar } from "./NavBar";
+import { NavBar } from "./components/NavBar";
 import { ExchangeRates } from "./components/exchange-rates";
 
 import { getCurrency, getFlags } from "./helper/helper";
@@ -36,15 +36,15 @@ export const App = () => {
           <Dropdown.Menu>
             {currencies.map((c, idx) => {
               return (
-                <Dropdown.Item key={idx} eventKey={c}>
+                <Dropdown.Item key={idx} eventKey={c[0]}>
                   <div
-                    className={getFlags(c)}
+                    className={getFlags(c[0])}
                     style={{
                       marginRight: 40,
                       verticalAlign: "middle",
                     }}
                   ></div>{" "}
-                  {c}
+                  {c[0]}
                 </Dropdown.Item>
               );
             })}

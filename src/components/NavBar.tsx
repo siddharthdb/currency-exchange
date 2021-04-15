@@ -1,14 +1,15 @@
 import React from "react";
-import { Navbar } from "react-bootstrap";
+import logo from '../assets/logo.png';
 
 export const NavBar = () => {
   return (
     <>
-      <Navbar bg="dark" expand="lg" variant="dark">
-        <Navbar.Brand href="/">
-          Currency Exchange
-        </Navbar.Brand>
-      </Navbar>
+      <nav className="header">
+        <a href="/">
+          <img alt="Logo" className="header--logo" src={logo} />
+        </a>
+        <span className="header--brand">Currency Convertor</span>
+      </nav>
     </>
   );
 };

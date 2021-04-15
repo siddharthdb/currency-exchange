@@ -1,22 +1,24 @@
+.app {
+  &--container {
+    border: 1px solid var(--border);
+  }
+}
+
 .currency-selector {
   width: 240px;
   color: #fff;
 }
 
 .currency-container {
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: 10px;
-  max-width: 750px;
-
-  > div {    
+  > div {
     text-align: center;
     padding: 20px 0;
     font-size: 24px;
   }
 
   .code {
-      font-family: 'Code2000', Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-family: "Code2000", Menlo, Monaco, Consolas,
+      "Courier New", monospace;
   }
 }
 
@@ -25,6 +27,6 @@
 */
 
 .dropdown-menu {
-    overflow-y:scroll;
-    max-height: 400px;
+  overflow-y: scroll;
+  max-height: 500px;
 }

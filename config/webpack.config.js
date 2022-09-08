@@ -60,7 +60,7 @@ module.exports = {
       template: path.join(__dirname, '..', "src/index.html"),
     }),
     new webpack.DefinePlugin({
-      'process.env': dotenv.parsed,
+      'process.env': JSON.stringify(process.env)
     }),
   ],
 };

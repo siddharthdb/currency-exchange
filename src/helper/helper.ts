@@ -1,6 +1,3 @@
-export const importImages = (r: any) => {    
-    return r.keys().map(r);
-}
 
 export const getCurrency = () => {
     return [["USD", "US Dollar"], ["JPY", "Japanese Yen"], ["BGN", "Bulgarian Lev"], ["CZK", "Czech Koruna"], 

@@ -7,7 +7,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
 
 const dotenv = require('dotenv').config({
   path: path.join(__dirname, '..', '.env')
@@ -68,11 +67,6 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/index.min.css'
-    }),
-    new ESLintPlugin({
-      overrideConfigFile: path.resolve(__dirname, '../.eslintrc'),
-      context: path.resolve(__dirname, '../src'),
-      files: ['**/*.ts', '**/*.tsx']
     }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '..', "src/index.html"),

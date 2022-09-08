@@ -1,20 +1,26 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Dropdown } from "react-bootstrap";
 import { getCurrency, getFlags } from "../helper/helper";
 
-export const BaseCurrency = (props: any) => {
+interface BaseCurrencyProps {
+  handleSelect: (e: string) => void;
+}
+
+export const BaseCurrency: FC<BaseCurrencyProps> = ({ handleSelect }) => {
   const currencies = getCurrency().sort();
   const [baseCurrency, setBaseCurrency] = useState("EUR");
 
-  const handleSelect = (e: any) => {
-    setBaseCurrency(e);
-    props.handleSelect(e);
+  const onCurrencySelect = (curr: string | null) => {
+    if (curr) {
+      setBaseCurrency(curr);
+      handleSelect(curr);
+    }
   };
 
   return (
     <div className="container mt-2">
       <span>Base Currency:</span>
-      <Dropdown onSelect={handleSelect}>
+      <Dropdown onSelect={onCurrencySelect}>
         <Dropdown.Toggle>
           {
             <>

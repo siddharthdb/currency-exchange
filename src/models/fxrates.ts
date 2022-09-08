@@ -1,6 +1,10 @@
 export interface FxRates {
-    base: string;
     date: string;
-    rates: any;
+    rates: Array<Rates>
+}
+
+export interface Rates {
+    currency: string,
+    rate: string
 }
 

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { FC, useState, useEffect } from "react";
 import { Card } from "react-bootstrap";
 
 import {
@@ -9,26 +9,31 @@ import {
 import { FxRates } from "../models/fxrates";
 import { getFXRates } from "../services/FxRates.service";
 
-export const ExchangeRates = (props: any) => {
+interface exchangeRatesProps {
+  baseCurrency: string
+}
+
+export const ExchangeRates: FC<exchangeRatesProps> = ({ baseCurrency: base }) => {
   const currencies = getCurrency().sort();
   const [fxRates, setFxRates] = useState<FxRates>();
 
   const symbols: any = getCurrencySymbol();
 
   useEffect(() => {
-    const response = getFXRates(props.base, "");
-    response.then((res: FxRates) => {
-      setFxRates(res);
+    const response = getFXRates(base, "");
+    response.then((res: FxRates[]) => {
+      console.log(res[0])
+      setFxRates(res[0]);
     });
-  }, [props.base]);
+  }, [base]);
 
   return (
     <div className="container currency-container">
       {currencies.map((c: string[], key: number) => {
-        return c[0] === fxRates?.base ? (
+        return c[0] === base ? (
           ""
         ) : (
-          <Card key={key} style={{ marginTop: 10 }}>
+          <Card key={key} style={{ background: 'var(--background-body)', marginTop: 10 }}>
             <div className="row">
               <div
                 className="col-7"
@@ -59,8 +64,8 @@ export const ExchangeRates = (props: any) => {
                 {fxRates && fxRates.rates ? (
                   <>
                     <span>{symbols[c[0]]}</span>
-                    <span>
-                      {fxRates.rates[c[0]].toFixed(4)}
+                    <span className="pl-2">
+                      {fxRates.rates.find(r => r.currency === c[0])?.rate}
                     </span>
                   </>
                 ) : null}
